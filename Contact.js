@@ -7,7 +7,7 @@ class Contact{
     zip;
     phoneNumber;
     email;
-    
+
     constructor(firstName,lastName,address,city,state,zip,phoneNumber,email){
         this.firstName=firstName;
         this.lastName=lastName;
