@@ -128,17 +128,27 @@ class Contact{
     }
 
 }
-let ContactArray=[];
-let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharashtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
-ContactArray.push(myContact);
-let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharashtra', '411029', '918928038762', 'arpitPatil@gmail.com');
-ContactArray.push(myContact2);
-let myContact3 = new Contact('John', 'Dooeoe', 'Mumbai', 'Anytown', 'Njsjsjs', '123845', '918928038762', 'johndoe@example.com');
-ContactArray.push(myContact3)
-// console.log(myContact.toString());
-// console.log(myContact2.toString());
 
-ContactArray.Edit=function(name,newname){
+class AddressBook{
+constructor(ContactArray){
+        this.ContactArray=ContactArray;
+}
+  display(){
+    console.log(this.ContactArray.toString())
+  }
+ addContact(Contact){
+    let flag=true
+    for(let i=0;i<ContactArray.length;i++){
+      if(Contact.firstName== this.ContactArray[i].firstName){
+        flag=flag
+      }
+    }
+    if(flag){
+      this.ContactArray.push(Contact);
+    }   
+}
+
+ Edit(name,newname){
   for(let i=0;i<ContactArray.length;i++){
     if(ContactArray[i]._firstName==name){
       ContactArray[i].firstName=newname;
@@ -147,7 +157,7 @@ ContactArray.Edit=function(name,newname){
   console.log(ContactArray.toString());
 }
 
-ContactArray.delete=function(name){
+deleteContact(name){
     for(let i =0;i<ContactArray.length;i++){
       if(ContactArray[i]._firstName==name){
         console.log("Contact found!!!")
@@ -159,36 +169,41 @@ ContactArray.delete=function(name){
     }
     console.log(ContactArray.toString());
 }
-ContactArray.FindNumberOfcontact=function(){
 
+numberofCOntact(){
+  const count = ContactArray.reduce((count, contacts) => {
+    return count+= 1;
+  }, 0);
+  console.log(`Number of contacts: ${count}`);
 }
-
-
-
-ContactArray.Edit("Prajwal","Praaajjjwwwaaalll");
-ContactArray.delete("Praaajjjwwwaaalll");
-const count = ContactArray.reduce((count, contacts) => {
-  return count+= 1;
-}, 0);
-console.log("Number of contacts: ${count}");
-ContactArray.FindNumberOfcontact;
-
-// let ContactArray=[];
-// let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharhtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
-// ContactArray.push(myContact);
-// let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharhtra', '411029', '918928038762', 'arpitPatil@gmail.com');
+  searchBycity(city){
+    let cityList=[]
+    cityList =this.ContactArray.filter(contact => contact.city== city)
+    console.log("Printing matched City")
+    console.log("**********************************")
+    console.log(cityList.toString())
+  }
+  searchByState(state){
+    let stateList=[];
+    stateList=this.ContactArray.filter(contact => contact.state==state)
+    console.log("Printing matched State")
+    console.log("**********************************")
+    console.log(stateList.toString())
+  }
+}
+let ContactArray=[];
+let newAddressBook = new AddressBook(ContactArray);
+let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharashtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
+newAddressBook.addContact(myContact);
+let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharashtra', '411029', '918928038762', 'arpitPatil@gmail.com');
 // ContactArray.push(myContact2);
-// console.log(myContact.toString());
-// console.log(myContact2.toString());
-
-
-// ContactArray.Edit=function(name,newname){
-//   for(let i=0;i<ContactArray.length;i++){
-//     if(ContactArray[i]._firstName==name){
-//       ContactArray[i].firstName="Praaajjjwwwaaalll";
-//     }
-//   }
-//   console.log(myContact.toString());
-// }
-
-// ContactArray.Edit("prajwal","Praaajjjwwwaaalll");
+newAddressBook.addContact(myContact2);
+let myContact3 = new Contact('John', 'Dooeoe', 'Mumbai', 'Pune', 'Njsjsjs', '123845', '918928038762', 'johndoe@example.com');
+// ContactArray.push(myContact3)
+newAddressBook.addContact(myContact3);
+newAddressBook.display();
+newAddressBook.Edit("Prajwal","Praaajjjwwwaaalll");
+newAddressBook.deleteContact("Jhon");
+newAddressBook.numberofCOntact();
+newAddressBook.searchBycity("Pune");
+newAddressBook.searchByState("Maharashtra")
