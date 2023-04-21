@@ -133,6 +133,8 @@ let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharasht
 ContactArray.push(myContact);
 let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharashtra', '411029', '918928038762', 'arpitPatil@gmail.com');
 ContactArray.push(myContact2);
+let myContact3 = new Contact('John', 'Dooeoe', 'Mumbai', 'Anytown', 'Njsjsjs', '123845', '918928038762', 'johndoe@example.com');
+ContactArray.push(myContact3)
 // console.log(myContact.toString());
 // console.log(myContact2.toString());
 
@@ -150,15 +152,27 @@ ContactArray.delete=function(name){
       if(ContactArray[i]._firstName==name){
         console.log("Contact found!!!")
         ContactArray.splice(i,1); 
+        // delete ContactArray[i];   this is another method 
         /// 1 is use to specify how much element you want to remove if 1 then 1 element will remove 
         console.log("Contact delete !!!")
       }
     }
     console.log(ContactArray.toString());
 }
+ContactArray.FindNumberOfcontact=function(){
+
+}
+
+
 
 ContactArray.Edit("Prajwal","Praaajjjwwwaaalll");
-ContactArray.delete("Praaajjjwwwaaalll")
+ContactArray.delete("Praaajjjwwwaaalll");
+const count = ContactArray.reduce((count, contacts) => {
+  return count+= 1;
+}, 0);
+console.log("Number of contacts: ${count}");
+ContactArray.FindNumberOfcontact;
+
 // let ContactArray=[];
 // let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharhtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
 // ContactArray.push(myContact);
