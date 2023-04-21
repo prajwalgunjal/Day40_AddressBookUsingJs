@@ -208,4 +208,5 @@ newAddressBook.Edit("Prajwal","Praaajjjwwwaaalll");
 newAddressBook.deleteContact("Jhon");
 newAddressBook.numberofCOntact();
 newAddressBook.searchBycity("Pune");
+//serch by state
 newAddressBook.searchByState("Maharashtra")
