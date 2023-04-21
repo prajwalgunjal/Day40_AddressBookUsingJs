@@ -192,6 +192,12 @@ numberofCOntact(){
     console.log("**********************************")
     console.log(stateList.toString())
   }
+  CountBycity(cityname){
+    let cityCount=ContactArray.filter(contact=> contact.city==cityname).reduce((cityCount,contact) => {
+      return cityCount+=1;
+    },0);
+    console.log("Number of Contacts in the Address Book whose city is " +cityname +"is :- "+cityCount)
+  }
 }
 let ContactArray=[];
 let newAddressBook = new AddressBook(ContactArray);
@@ -210,3 +216,4 @@ newAddressBook.numberofCOntact();
 newAddressBook.searchBycity("Pune");
 //serch by state
 newAddressBook.searchByState("Maharashtra")
+newAddressBook.CountBycity("Pune")
