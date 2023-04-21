@@ -133,8 +133,8 @@ let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharasht
 ContactArray.push(myContact);
 let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharashtra', '411029', '918928038762', 'arpitPatil@gmail.com');
 ContactArray.push(myContact2);
-console.log(myContact.toString());
-console.log(myContact2.toString());
+// console.log(myContact.toString());
+// console.log(myContact2.toString());
 
 ContactArray.Edit=function(name,newname){
   for(let i=0;i<ContactArray.length;i++){
@@ -145,9 +145,19 @@ ContactArray.Edit=function(name,newname){
   console.log(ContactArray.toString());
 }
 
+ContactArray.delete=function(name){
+    for(let i =0;i<ContactArray.length;i++){
+      if(ContactArray[i]._firstName==name){
+        console.log("Contact found!!!")
+        ContactArray.splice(i,1); /// 1 is use to specify how much element you want to remove if 1 then 1 element will remove 
+        console.log("Contact delete !!!")
+      }
+    }
+    console.log(ContactArray.toString());
+}
+
 ContactArray.Edit("Prajwal","Praaajjjwwwaaalll");
-
-
+ContactArray.delete("Praaajjjwwwaaalll")
 // let ContactArray=[];
 // let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharhtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
 // ContactArray.push(myContact);
