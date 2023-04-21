@@ -167,6 +167,7 @@ deleteContact(name){
         console.log("Contact delete !!!")
       }
     }
+    console.log("**********************************")
     console.log(ContactArray.toString());
 }
 
@@ -174,6 +175,7 @@ numberofCOntact(){
   const count = ContactArray.reduce((count, contacts) => {
     return count+= 1;
   }, 0);
+  console.log("**********************************")
   console.log(`Number of contacts: ${count}`);
 }
   searchBycity(city){
