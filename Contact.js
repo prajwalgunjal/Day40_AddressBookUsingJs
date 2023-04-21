@@ -209,7 +209,51 @@ numberofCOntact(){
         }
         return 0;
     });
-    console.log("Printing Sorted list")
+    console.log("Printing SortByname list")
+    console.log(sortedList.toString())
+  }
+
+  sortBycity(){
+    let sortedList=[];
+    sortedList = ContactArray.sort((a,b)=>{
+      if(a.city<b.city)
+      {
+        return -1;
+      }
+      if(a.city>b.city){
+        return 1;
+      }
+      return 0;
+    })
+    console.log("Printing SortbyCity list")
+    console.log(sortedList.toString())
+  }
+  sortBystate(){
+    let sortedList=[]
+    sortedList=ContactArray.sort((a,b)=>{
+      if(a.state<b.state){
+        return -1;
+      }
+      if(a.state>b.state){
+        return 1;
+      }
+      return 0;
+    })
+    console.log("Printing list sortbyState")
+    console.log(sortedList.toString())
+  }
+  sortByzip(){
+    let sortedList=[]
+    sortedList=ContactArray.sort((a,b)=>{
+      if(a.zip<b.zip){
+        return -1;
+      }
+      if(a.zip>b.zip){
+        return 1;
+      }
+      return 0;
+    })
+    console.log("Printing sort by zip")
     console.log(sortedList.toString())
   }
 }
@@ -217,12 +261,14 @@ let ContactArray=[];
 let newAddressBook = new AddressBook(ContactArray);
 let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharashtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
 newAddressBook.addContact(myContact);
-let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharashtra', '411029', '918928038762', 'arpitPatil@gmail.com');
+let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharashtra', '611029', '918928038762', 'arpitPatil@gmail.com');
 // ContactArray.push(myContact2);
 newAddressBook.addContact(myContact2);
-let myContact3 = new Contact('John', 'Dooeoe', 'Mumbai', 'Pune', 'Njsjsjs', '123845', '918928038762', 'johndoe@example.com');
+let myContact3 = new Contact('John', 'Dooeoe', 'Mumbai', 'Pune', 'Njsjsjs', '713845', '918928038762', 'johndoe@example.com');
+let myContact4 = new Contact('Zzzz', 'Zzzzzz', 'Zumbai', 'Zune', 'Njsjsjs', '011122', '918928038762', 'ZZZZZZe@example.com');
 // ContactArray.push(myContact3)
 newAddressBook.addContact(myContact3);
+newAddressBook.addContact(myContact4)
 newAddressBook.display();
 newAddressBook.Edit("Prajwal","Praaajjjwwwaaalll");
 newAddressBook.deleteContact("Jhon");
@@ -232,3 +278,6 @@ newAddressBook.searchBycity("Pune");
 newAddressBook.searchByState("Maharashtra")
 newAddressBook.CountBycity("Pune")
 newAddressBook.SortbyName();
+newAddressBook.sortBycity();
+newAddressBook.sortBystate();
+newAddressBook.sortByzip();
