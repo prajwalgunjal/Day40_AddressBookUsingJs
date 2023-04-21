@@ -68,7 +68,7 @@ class Contact{
         {
           this._city=city;
         }else{
-          throw "Enter valid city ";
+          throw "check your city and Enter valid city ";
         }
     }
 
