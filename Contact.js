@@ -124,11 +124,46 @@ class Contact{
         }
     }
     toString(){
-      return (`First Name: ${this.firstName} \nLast Name: ${this.lastName}\nAddress: ${this.address}\nCity : ${this.city}\nState : ${this.state}\nZip code : ${this.zip}\nPhone Number : ${this.phoneNumber}\nEmail ID: ${this.email}`)
+      return (`First Name: ${this.firstName} \nLast Name: ${this.lastName}\nAddress: ${this.address}\nCity : ${this.city}\nState : ${this.state}\nZip code : ${this.zip}\nPhone Number : ${this.phoneNumber}\nEmail ID: ${this.email}\n`)
     }
+
+}
+let ContactArray=[];
+let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharashtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
+ContactArray.push(myContact);
+let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharashtra', '411029', '918928038762', 'arpitPatil@gmail.com');
+ContactArray.push(myContact2);
+console.log(myContact.toString());
+console.log(myContact2.toString());
+
+ContactArray.Edit=function(name,newname){
+  for(let i=0;i<ContactArray.length;i++){
+    if(ContactArray[i]._firstName==name){
+      ContactArray[i].firstName=newname;
+    }
+  }
+  console.log(ContactArray.toString());
 }
 
+ContactArray.Edit("Prajwal","Praaajjjwwwaaalll");
 
 
-let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharhtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
-console.log(myContact.toString());
+// let ContactArray=[];
+// let myContact = new Contact('Prajwal', 'Gunjal', 'Kasarwadi', 'Pune', 'Maharhtra', '411034', '919881640062', 'prajwalgunjal@gmail.com');
+// ContactArray.push(myContact);
+// let myContact2 = new Contact('Arpit', 'Patil', 'Rahatni', 'Pune', 'Maharhtra', '411029', '918928038762', 'arpitPatil@gmail.com');
+// ContactArray.push(myContact2);
+// console.log(myContact.toString());
+// console.log(myContact2.toString());
+
+
+// ContactArray.Edit=function(name,newname){
+//   for(let i=0;i<ContactArray.length;i++){
+//     if(ContactArray[i]._firstName==name){
+//       ContactArray[i].firstName="Praaajjjwwwaaalll";
+//     }
+//   }
+//   console.log(myContact.toString());
+// }
+
+// ContactArray.Edit("prajwal","Praaajjjwwwaaalll");
